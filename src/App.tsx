@@ -1,12 +1,23 @@
-import Footer from '@layout/footer'
-import Header from '@layout/header'
+import OtpInput from './components/otp-input'
 
 export default function App() {
    return (
       <div>
-         <Header />
-         <h1 className='text-5xl text-red-600 '>A Rspack + React template with TailwindCss & Prettier.</h1>
-         <Footer />
+         <h1 className='text-center text-2xl py-4'>Otp Input</h1>
+         <div className='grid place-content-center'>
+            <OtpInput
+               RenderInput={({ inputRef, ...props }) => {
+                  return (
+                     <input
+                        {...props}
+                        ref={inputRef}
+                        className='border border-purple-600 bg-purple-100 rounded-md w-10 h-10 text-center'
+                     />
+                  )
+               }}
+               onSubmit={(otp) =>console.log({otp})}
+            />
+         </div>
       </div>
    )
 }
